@@ -1,0 +1,72 @@
+{
+  "passed": 13,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Gateway process is running",
+      "status": "PASSED",
+      "duration": 27
+    },
+    {
+      "name": "Gateway responds to status check",
+      "status": "PASSED",
+      "duration": 1525
+    },
+    {
+      "name": "AURA extension registered",
+      "status": "PASSED",
+      "duration": 100
+    },
+    {
+      "name": "AURA config loaded",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "before_prompt_build hook registered",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "message:sent hook registered",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "Neo4j connection available",
+      "status": "PASSED",
+      "duration": 14
+    },
+    {
+      "name": "AURA KG integration initialized",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "SQLite database accessible",
+      "status": "PASSED",
+      "duration": 2
+    },
+    {
+      "name": "TieredMemoryStore initialized",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "ContextInjector initialized",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "QueryEntityResolver ready",
+      "status": "PASSED",
+      "duration": 0
+    },
+    {
+      "name": "aura-memory:status command available",
+      "status": "PASSED",
+      "duration": 2335
+    }
+  ],
+  "timestamp": "2026-03-05T11:40:05.302Z"
+}

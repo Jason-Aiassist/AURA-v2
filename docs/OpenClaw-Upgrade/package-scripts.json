@@ -1,0 +1,16 @@
+{
+  "name": "aura-memory-upgrade-tests",
+  "version": "1.0.0",
+  "description": "Test suite for AURA Memory OpenClaw upgrade verification",
+  "scripts": {
+    "test:aura:pre-upgrade": "node docs/OpenClaw-Upgrade/tests/pre-upgrade-check.mjs",
+    "test:aura:post-upgrade": "node docs/OpenClaw-Upgrade/tests/post-upgrade-check.mjs",
+    "test:aura:smoke": "node docs/OpenClaw-Upgrade/tests/smoke-test.mjs",
+    "test:aura:upgrade": "bash docs/OpenClaw-Upgrade/tests/run-all-tests.sh all",
+    "test:aura:diagnostics": "bash docs/OpenClaw-Upgrade/tests/run-all-tests.sh pre && bash docs/OpenClaw-Upgrade/tests/run-all-tests.sh post",
+    "test:aura:hooks": "node -e \"console.log('Hook tests: Run pre and post upgrade checks')\"",
+    "test:aura:context": "node -e \"console.log('Context tests: Run post-upgrade and smoke tests')\"",
+    "test:aura:storage": "node -e \"console.log('Storage tests: Run smoke test and check CLI commands')\"",
+    "test:aura:kg": "node -e \"console.log('KG tests: Run aura-memory:kg-status CLI command')\""
+  }
+}

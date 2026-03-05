@@ -1,0 +1,37 @@
+{
+  "id": "aura-memory",
+  "name": "aura-memory",
+  "kind": "extension",
+  "version": "1.0.0",
+  "description": "AURA session extraction and memory management",
+  "author": "AURA Team",
+  "license": "MIT",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "intervalMinutes": {
+        "type": "number",
+        "default": 5,
+        "minimum": 1,
+        "maximum": 60
+      },
+      "maxDurationMinutes": {
+        "type": "number",
+        "default": 10,
+        "minimum": 1,
+        "maximum": 120
+      },
+      "batchSize": {
+        "type": "number",
+        "default": 100,
+        "minimum": 1,
+        "maximum": 1000
+      }
+    }
+  }
+}

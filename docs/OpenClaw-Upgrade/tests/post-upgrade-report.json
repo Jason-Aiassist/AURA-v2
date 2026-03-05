@@ -1,0 +1,169 @@
+{
+  "passed": 26,
+  "failed": 0,
+  "warnings": 1,
+  "tests": [
+    {
+      "name": "Node modules installed",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "better-sqlite3 built",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "TypeScript compilation succeeds",
+      "status": "PASSED",
+      "duration": 23899,
+      "critical": true
+    },
+    {
+      "name": "registerInternalHook still exported",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "MessageSentHookEvent type unchanged",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "before_prompt_build hook type exists",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "PluginHookBeforePromptBuildEvent has prompt field",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "PluginHookBeforePromptBuildResult has prependContext",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "OpenClawPluginApi interface exists",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "PluginApi has register method",
+      "status": "PASSED",
+      "duration": 1,
+      "critical": true
+    },
+    {
+      "name": "PluginApi has on method for hooks",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "PluginApi logger interface intact",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "Agent runner executes before_prompt_build hook",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "Agent runner handles prependContext",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": true
+    },
+    {
+      "name": "Agent runner handles hook errors gracefully",
+      "status": "PASSED",
+      "duration": 1,
+      "critical": true
+    },
+    {
+      "name": "AURA config file exists",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "AURA index.ts imports work",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "AURA uses correct hook name",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "AURA getUserName() function exists",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "better-sqlite3 in package.json",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "neo4j-driver in package.json",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "zod in package.json (AURA uses it)",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "Hook priority system still works",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "Plugin config schema support preserved",
+      "status": "PASSED",
+      "duration": 0,
+      "critical": false
+    },
+    {
+      "name": "Could not verify sync registration",
+      "status": "WARNING",
+      "error": "Unable to parse registration pattern",
+      "duration": 1
+    },
+    {
+      "name": "Synchronous plugin registration supported",
+      "status": "PASSED",
+      "duration": 1,
+      "critical": false
+    },
+    {
+      "name": "TypeScript compilation time acceptable",
+      "status": "PASSED",
+      "duration": 624
+    }
+  ],
+  "timing": {}
+}

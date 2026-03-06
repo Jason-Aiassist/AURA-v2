@@ -1,0 +1,47 @@
+{
+  "gateway": {
+    "controlUi": {
+      "dangerouslyAllowHostHeaderOriginFallback": true,
+      "allowInsecureAuth": true,
+      "dangerouslyDisableDeviceAuth": true,
+      "allowedOrigins": [
+        "http://localhost:18800",
+        "http://127.0.0.1:18800",
+        "http://ason.local:18800"
+      ]
+    }
+  },
+  "models": {
+    "providers": {
+      "moonshot": {
+        "baseUrl": "https://api.moonshot.ai/v1",
+        "apiKey": "sk-wXOO5NVTAPQM4DZVS3qw4WYJn8LMsOxlTlNlnnlGD5b1zlA9",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "contextWindow": 256000
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "moonshot/kimi-k2.5"
+      }
+    }
+  },
+  "plugins": {
+    "slots": {
+      "memory": "memory-core"
+    },
+    "entries": {
+      "aura-memory": {
+        "enabled": true
+      }
+    }
+  }
+}

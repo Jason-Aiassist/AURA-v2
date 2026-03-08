@@ -1,0 +1,11 @@
+{
+  "model": {
+    "primary": "moonshot/kimi-k2.5"
+  },
+  "models": {
+    "moonshot/kimi-k2.5": {
+      "provider": "moonshot",
+      "alias": "Kimi"
+    }
+  }
+}

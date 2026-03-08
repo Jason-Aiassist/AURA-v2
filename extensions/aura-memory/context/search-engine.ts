@@ -66,7 +66,7 @@ export class SemanticSearchEngine {
    * Search for relevant memories with adjustable threshold
    * Equivalent to Python: async def search(self, query, limit, relevance_threshold)
    */
-  @trackPerformance("search")
+  
   async search(
     query: string,
     limit: number = 50,
@@ -165,7 +165,7 @@ export class SemanticSearchEngine {
    * Build search index from memory storage
    * Equivalent to Python _build_index()
    */
-  @trackPerformance("index-build")
+  
   private async buildIndex(): Promise<void> {
     debugIndexBuildStart(this.memoryPath);
     const startTime = Date.now();

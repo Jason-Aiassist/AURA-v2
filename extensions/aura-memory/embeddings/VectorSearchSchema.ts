@@ -62,6 +62,8 @@ export class VectorSearchSchema {
       this.available = true;
       return true;
     } catch (error) {
+      console.error("[VectorSearchSchema] Failed to initialize:", 
+        error instanceof Error ? error.message : String(error));
       this.available = false;
       return false;
     }
@@ -74,8 +76,11 @@ export class VectorSearchSchema {
     try {
       // Try to execute a vec0-specific query
       this.db.exec("SELECT vec_version()");
+      console.log("[VectorSearchSchema] sqlite-vec extension detected");
       return true;
-    } catch {
+    } catch (error) {
+      console.warn("[VectorSearchSchema] sqlite-vec extension not available:", 
+        error instanceof Error ? error.message : String(error));
       return false;
     }
   }
@@ -95,7 +100,7 @@ export class VectorSearchSchema {
    */
   insertVector(memoryId: string, embedding: number[]): void {
     if (!this.available) {
-      throw new Error("Vector search not available");
+      throw new Error("Vector search not available - check initialize() was called and sqlite-vec extension is loaded");
     }
 
     if (embedding.length !== this.dimensions) {
@@ -106,12 +111,34 @@ export class VectorSearchSchema {
     const floatArray = new Float32Array(embedding);
     const buffer = Buffer.from(floatArray.buffer);
 
-    const stmt = this.db.prepare(`
-      INSERT OR REPLACE INTO ${this.tableName} (memory_id, embedding)
-      VALUES (?, ?)
-    `);
-
-    stmt.run(memoryId, buffer);
+    try {
+      // Try to insert first
+      const insertStmt = this.db.prepare(`
+        INSERT INTO ${this.tableName} (memory_id, embedding)
+        VALUES (?, ?)
+      `);
+      insertStmt.run(memoryId, buffer);
+    } catch (error) {
+      // If duplicate, delete and re-insert (sqlite-vec doesn't support UPDATE well)
+      if (error instanceof Error && error.message.includes("UNIQUE constraint failed")) {
+        try {
+          this.deleteVector(memoryId);
+          const insertStmt = this.db.prepare(`
+            INSERT INTO ${this.tableName} (memory_id, embedding)
+            VALUES (?, ?)
+          `);
+          insertStmt.run(memoryId, buffer);
+        } catch (retryError) {
+          // If still failing, just log and continue
+          console.warn("[VectorSearchSchema] Failed to update existing vector:", {
+            memoryId,
+            error: retryError instanceof Error ? retryError.message : String(retryError),
+          });
+        }
+      } else {
+        throw error;
+      }
+    }
   }
 
   /**

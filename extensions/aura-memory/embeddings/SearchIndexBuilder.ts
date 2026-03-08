@@ -118,10 +118,18 @@ export class SearchIndexBuilder {
           vectorIndexed = true;
           this.log.debug("Vector indexed successfully", { memoryId });
         } catch (vecError) {
-          this.log.warn("Failed to insert vector", {
-            memoryId,
-            error: vecError instanceof Error ? vecError.message : String(vecError),
-          });
+          // Only log as error if it's not a duplicate
+          const errorMsg = vecError instanceof Error ? vecError.message : String(vecError);
+          if (errorMsg.includes("UNIQUE constraint") || errorMsg.includes("Failed to update existing vector")) {
+            // Duplicate - this is expected, don't log as error
+            this.log.debug("Vector already exists (duplicate)", { memoryId });
+          } else {
+            console.error("[SearchIndexBuilder] Failed to insert vector:", {
+              memoryId,
+              error: errorMsg,
+              stack: vecError instanceof Error ? vecError.stack : undefined,
+            });
+          }
         }
       } else {
         this.log.debug("No embedding generated (service may be unavailable)", { memoryId });

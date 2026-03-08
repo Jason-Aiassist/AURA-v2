@@ -19,13 +19,20 @@ export class HotTier implements IHotTier {
 
     // Load sqlite-vec extension if available
     const sqliteVecPath = process.env.SQLITE_VEC_PATH;
+    console.log("[HotTier] SQLITE_VEC_PATH:", sqliteVecPath);
     if (sqliteVecPath) {
       try {
         this.db.loadExtension(sqliteVecPath);
         console.log("[HotTier] sqlite-vec extension loaded successfully");
+        // Verify extension is working
+        const version = this.db.prepare("SELECT vec_version()").get();
+        console.log("[HotTier] sqlite-vec version:", version);
       } catch (vecError) {
-        console.warn("[HotTier] Failed to load sqlite-vec extension:", vecError);
+        console.error("[HotTier] Failed to load sqlite-vec extension:", 
+          vecError instanceof Error ? vecError.message : String(vecError));
       }
+    } else {
+      console.warn("[HotTier] SQLITE_VEC_PATH not set, vector search disabled");
     }
 
     this.initializeSchema();

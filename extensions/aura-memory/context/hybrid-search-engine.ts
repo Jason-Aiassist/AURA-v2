@@ -77,7 +77,7 @@ export class HybridSearchEngine {
    *
    * @param memoryIds - Optional array of memory IDs to restrict search to (for pipeline mode)
    */
-  @trackPerformance("hybrid-search")
+  
   async search(
     query: string,
     queryEmbedding?: number[],

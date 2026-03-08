@@ -66,7 +66,7 @@ const DEFAULT_CONFIG: QueryAnalyzerConfig = {
   model: "coder_fast",
   temperature: 0.0,
   maxTokens: 256,
-  timeoutMs: 2000,
+  timeoutMs: 10000, // Increased from 2000 to 10000ms (10 seconds) for local proxy
   enableCache: true,
   cacheTtlMs: 5 * 60 * 1000, // 5 minutes
 };

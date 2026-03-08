@@ -18,7 +18,6 @@ import { SessionFileFetcher } from "./cron/SessionFileFetcher.js";
 import {
   EmbeddingService,
   initializeEmbeddingService,
-  getEmbeddingService,
 } from "./embeddings/EmbeddingService.js";
 import { SearchIndexBuilder } from "./embeddings/SearchIndexBuilder.js";
 import { EncryptionService } from "./encryption/EncryptionService.js";

@@ -128,7 +128,7 @@ export class GraphAwareContextBuilder {
   /**
    * Execute graph-aware three-stage pipeline
    */
-  @trackPerformance("graph-aware-context-build")
+  
   async buildContext(
     query: string,
     options: ContextBuildOptions & { entities?: string[] } = {},

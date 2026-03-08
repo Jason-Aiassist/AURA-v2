@@ -116,7 +116,7 @@ export class ThreeStageContextBuilder {
    * TRUE PIPELINE: Stage 1 → Stage 2 → Stage 3
    * Stage 2 is scoped to memories identified by Stage 1
    */
-  @trackPerformance("context-build")
+  
   async buildContext(
     query: string,
     options: ContextBuildOptions & { entities?: string[] } = {},

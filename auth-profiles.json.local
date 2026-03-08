@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "moonshot:default": {
+      "provider": "moonshot",
+      "mode": "api_key"
+    }
+  }
+}

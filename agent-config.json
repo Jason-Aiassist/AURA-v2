@@ -1,0 +1,5 @@
+{
+  "id": "main",
+  "name": "Main Agent",
+  "model": "moonshot/kimi-k2.5"
+}
